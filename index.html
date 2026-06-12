@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -13,159 +13,166 @@
   --text:#1e293b; --muted:#64748b; --font:'Tahoma',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13px}
+html{font-size:14px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:13px;
+      -webkit-text-size-adjust:100%}
 
-/* ── Layout ── */
-.wrap{max-width:1400px;margin:0 auto;padding:16px}
-.top-bar{background:var(--navy);color:#fff;padding:14px 20px;border-radius:12px;
-          display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.top-bar h1{font-size:20px;font-weight:700;flex:1}
+.wrap{max-width:1400px;margin:0 auto;padding:12px}
+.top-bar{background:var(--navy);color:#fff;padding:12px 16px;border-radius:10px;
+          display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.top-bar h1{font-size:18px;font-weight:700;flex:1;min-width:200px}
 .top-bar .sub{font-size:11px;opacity:.7}
-.card{background:var(--card);border-radius:10px;padding:16px;
-       box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:14px}
+.card{background:var(--card);border-radius:10px;padding:14px;
+       box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:12px}
 .section-title{font-size:13px;font-weight:700;color:var(--navy);
                 margin-bottom:10px;padding-bottom:6px;border-bottom:2px solid var(--border)}
 
-/* ── KPI grid ── */
-.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
-.kpi{background:var(--card);border-radius:10px;padding:12px 14px;
+/* ── KPI grid — responsive ── */
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
+  margin-bottom:12px;
+}
+@media(max-width:1100px){.kpi-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
+
+.kpi{background:var(--card);border-radius:10px;padding:10px 12px;
       box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:3px solid var(--navy)}
-.kpi-label{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;margin-bottom:4px}
-.kpi-val{font-size:20px;font-weight:700;line-height:1.1}
+.kpi-label{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;margin-bottom:3px}
+.kpi-val{font-size:clamp(16px,2.5vw,22px);font-weight:700;line-height:1.1}
 .kpi-sub{font-size:10px;color:var(--muted);margin-top:3px}
 
-/* ── Charts row ── */
-.chart-row{display:grid;grid-template-columns:280px 1fr;gap:14px;margin-bottom:14px}
-.chart-full{margin-bottom:14px}
+/* ── Charts row — responsive ── */
+.chart-row{display:grid;grid-template-columns:260px 1fr;gap:12px;margin-bottom:12px}
+@media(max-width:768px){.chart-row{grid-template-columns:1fr}}
+.chart-full{margin-bottom:12px}
 
 /* ── Tabs ── */
-.tabs{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
-.tab{padding:7px 16px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;
       border:1.5px solid var(--border);background:var(--card);color:var(--muted)}
 .tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 
 /* ── Filter bar ── */
-.filter-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;
-             background:var(--card);border-radius:10px;padding:12px 14px;
-             box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:12px}
-.filter-group{display:flex;flex-direction:column;gap:4px}
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;
+             background:var(--card);border-radius:10px;padding:10px 12px;
+             box-shadow:0 1px 3px rgba(0,0,0,.08);margin-bottom:10px}
+.filter-group{display:flex;flex-direction:column;gap:3px}
 .filter-group label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
 .filter-group select,.filter-group input{
-  padding:6px 10px;border:1.5px solid var(--border);border-radius:6px;
-  font-size:12px;color:var(--text);background:#fff;min-width:130px}
-.btn{padding:7px 18px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700;border:none}
+  padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;
+  font-size:12px;color:var(--text);background:#fff;min-width:120px;max-width:100%}
+.btn{padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:700;border:none}
 .btn-apply{background:var(--blue);color:#fff}
 .btn-reset{background:var(--border);color:var(--muted)}
 
 /* ── Tables ── */
-.tbl-wrap{overflow-x:auto;max-height:480px;border-radius:8px;border:1px solid var(--border)}
+.tbl-wrap{overflow-x:auto;max-height:480px;border-radius:8px;border:1px solid var(--border);
+           -webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;font-size:12px}
 thead th{position:sticky;top:0;z-index:2;background:var(--navy);color:#fff;
-          padding:9px 10px;font-size:11px;font-weight:600;white-space:nowrap;
+          padding:8px 10px;font-size:11px;font-weight:600;white-space:nowrap;
           border-right:1px solid rgba(255,255,255,.12)}
 thead th:last-child{border-right:none}
 tbody tr.trow:hover td{filter:brightness(.96)}
-tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap}
+tbody td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:middle;white-space:nowrap}
 .tc{text-align:center}
 .tr{text-align:right}
 .bold{font-weight:600}
 .small{font-size:11px;white-space:normal!important;min-width:180px}
 
-/* ── Badge ── */
-.badge{display:inline-block;padding:2px 9px;border-radius:20px;
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;
         color:#fff;font-size:10px;font-weight:700;white-space:nowrap}
 
 /* ── Progress bar ── */
-.pbar-wrap{display:flex;align-items:center;gap:6px}
+.pbar-wrap{display:flex;align-items:center;gap:5px}
 .pbar-fill{height:7px;border-radius:4px;min-width:2px}
-.pbar-label{font-size:11px;font-weight:600;white-space:nowrap;min-width:36px}
+.pbar-label{font-size:11px;font-weight:600;white-space:nowrap;min-width:38px}
 
-/* hidden tab panels */
 .tab-panel{display:none}.tab-panel.active{display:block}
-
-/* no-result */
 .no-result{text-align:center;padding:30px;color:var(--muted)}
+
+/* scrollbar styling for webkit */
+.tbl-wrap::-webkit-scrollbar{height:6px;width:6px}
+.tbl-wrap::-webkit-scrollbar-track{background:#f1f5f9}
+.tbl-wrap::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- ── Title ── -->
 <div class="top-bar">
-  <span style="font-size:24px">🚢</span>
+  <span style="font-size:22px">🚢</span>
   <div>
     <h1>PO & Product Tracker Dashboard</h1>
-    <div class="sub">อัปเดต: 12/06/2026 12:05  |  ข้อมูลจาก: PO_Items.xlsx</div>
+    <div class="sub">Updated: 12/06/2026 15:08  |  Source: PO_Items.xlsx</div>
   </div>
 </div>
 
-<!-- ── KPI Cards ── -->
 <div class="kpi-grid">
   <div class="kpi">
-    <div class="kpi-label">ใบจัดซื้อทั้งหมด</div>
+    <div class="kpi-label">Total POs</div>
     <div class="kpi-val" style="color:var(--navy)">11</div>
     <div class="kpi-sub">In Transit 8  ·  Delivered 3</div>
   </div>
   <div class="kpi" style="border-top-color:#8b5cf6">
-    <div class="kpi-label">ถึงภายใน 7 วัน</div>
+    <div class="kpi-label">Arriving in 7 Days</div>
     <div class="kpi-val" style="color:#8b5cf6">7</div>
-    <div class="kpi-sub">ถัดไป: PO 3057 (15/06/2026)</div>
+    <div class="kpi-sub">Next: PO 3057 (15/06/2026)</div>
   </div>
   <div class="kpi" style="border-top-color:var(--blue)">
-    <div class="kpi-label">สั่งซื้อรวม (ชิ้น)</div>
+    <div class="kpi-label">Total Ordered (pcs)</div>
     <div class="kpi-val" style="color:var(--blue)">179,650</div>
-    <div class="kpi-sub">ทุก PO รวมกัน</div>
+    <div class="kpi-sub">Across all POs</div>
   </div>
   <div class="kpi" style="border-top-color:var(--green)">
-    <div class="kpi-label">เข้าคลังแล้ว</div>
+    <div class="kpi-label">Received</div>
     <div class="kpi-val" style="color:var(--green)">16,960</div>
-    <div class="kpi-sub">9.4% ของที่สั่ง</div>
+    <div class="kpi-sub">9.4% of ordered</div>
   </div>
   <div class="kpi" style="border-top-color:var(--orange)">
-    <div class="kpi-label">รอเข้าคลัง</div>
+    <div class="kpi-label">Pending</div>
     <div class="kpi-val" style="color:var(--orange)">162,690</div>
-    <div class="kpi-sub">ชิ้นที่ยังไม่รับเข้า</div>
+    <div class="kpi-sub">Units not yet received</div>
   </div>
   <div class="kpi" style="border-top-color:var(--teal)">
-    <div class="kpi-label">% รับเข้าคลัง</div>
+    <div class="kpi-label">% Received</div>
     <div class="kpi-val" style="color:var(--teal)">9.4%</div>
     <div class="kpi-sub">Fulfillment rate</div>
   </div>
 </div>
 
-<!-- ── Charts ── -->
 <div class="chart-row">
   <div class="card" style="display:flex;flex-direction:column;align-items:center;justify-content:center">
-    <div class="section-title" style="width:100%">สถานะการขนส่ง</div>
+    <div class="section-title" style="width:100%">Shipment Status</div>
     <div id="chart_donut" style="width:100%"></div>
   </div>
   <div class="card">
-    <div class="section-title">สั่ง vs เข้าคลัง แยกตาม PO</div>
+    <div class="section-title">Ordered vs Received by PO</div>
     <div id="chart_bar"></div>
   </div>
 </div>
 <div class="card chart-full">
-  <div class="section-title">Top 15 สินค้า — สั่ง vs เข้าคลัง</div>
+  <div class="section-title">Top 15 Products — Ordered vs Received</div>
   <div id="chart_hbar"></div>
 </div>
 
-<!-- ── Tabs ── -->
 <div class="tabs">
   <div class="tab active" onclick="switchTab('po',this)">📋 PO Overview</div>
-  <div class="tab" onclick="switchTab('model',this)">📈 รายสินค้า (Model)</div>
+  <div class="tab" onclick="switchTab('model',this)">📈 By Product (Model)</div>
   <div class="tab" onclick="switchTab('sku',this)">📦 Product Tracker (SKU)</div>
 </div>
 
-<!-- ════════════ TAB: PO ════════════ -->
 <div id="tab-po" class="tab-panel active">
   <div class="filter-bar">
     <div class="filter-group"><label>PO#</label>
-      <select id="f_po"><option value="">ทั้งหมด</option><option value="2988">2988</option><option value="2990">2990</option><option value="3056">3056</option><option value="3057">3057</option><option value="3059">3059</option><option value="3062">3062</option><option value="3066">3066</option><option value="3067">3067</option><option value="3069">3069</option><option value="3092">3092</option><option value="3098">3098</option></select></div>
-    <div class="filter-group"><label>สถานะเรือ</label>
-      <select id="f_ship"><option value="">ทั้งหมด</option><option value="Delivered">Delivered</option><option value="In transit">In transit</option></select></div>
-    <div class="filter-group"><label>เรือถึง (ตั้งแต่)</label>
+      <select id="f_po"><option value="">All</option><option value="2988">2988</option><option value="2990">2990</option><option value="3056">3056</option><option value="3057">3057</option><option value="3059">3059</option><option value="3062">3062</option><option value="3066">3066</option><option value="3067">3067</option><option value="3069">3069</option><option value="3092">3092</option><option value="3098">3098</option></select></div>
+    <div class="filter-group"><label>Ship Status</label>
+      <select id="f_ship"><option value="">All</option><option value="Delivered">Delivered</option><option value="In transit">In transit</option></select></div>
+    <div class="filter-group"><label>Arrival From</label>
       <input type="date" id="f_arrive_from"></div>
-    <div class="filter-group"><label>เรือถึง (ถึง)</label>
+    <div class="filter-group"><label>Arrival To</label>
       <input type="date" id="f_arrive_to"></div>
     <button class="btn btn-apply" onclick="filterPO()">🔍 Apply</button>
     <button class="btn btn-reset" onclick="resetPO()">↺ Reset</button>
@@ -174,9 +181,9 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   <div class="tbl-wrap">
     <table>
       <thead><tr>
-        <th>PO#</th><th>Supplier</th><th>สถานะ</th><th>Model/SKU</th>
-        <th>วันสั่ง</th><th>บรรจุตู้</th><th>เรือออก</th><th>เรือถึง</th>
-        <th>สั่ง (ชิ้น)</th><th>เข้าคลัง</th><th>รอเข้า</th><th>% เข้าคลัง</th>
+        <th>PO#</th><th>Supplier</th><th>Status</th><th>Model/SKU</th>
+        <th>Order Date</th><th>Packed</th><th>Departed</th><th>Arrived</th>
+        <th>Ordered (pcs)</th><th>Received</th><th>Pending</th><th>% Received</th>
       </tr></thead>
       <tbody id="tb_po">
     <tr class="trow" data-po="2988" data-ship="Delivered"
@@ -184,7 +191,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">2988</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#22c55e">Delivered</span></td>
-      <td class="tc">42 model<br><small>76 SKU</small></td>
+      <td class="tc">42 model(s)<br><small>76 SKU</small></td>
       <td class="tc">16/03/2026</td>
       <td class="tc">16/05/2026</td>
       <td class="tc">21/05/2026</td>
@@ -199,7 +206,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">2990</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#22c55e">Delivered</span></td>
-      <td class="tc">24 model<br><small>64 SKU</small></td>
+      <td class="tc">24 model(s)<br><small>64 SKU</small></td>
       <td class="tc">28/04/2026</td>
       <td class="tc">23/05/2026</td>
       <td class="tc">31/05/2026</td>
@@ -214,7 +221,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3056</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#22c55e">Delivered</span></td>
-      <td class="tc">19 model<br><small>60 SKU</small></td>
+      <td class="tc">19 model(s)<br><small>60 SKU</small></td>
       <td class="tc">02/05/2026</td>
       <td class="tc">24/05/2026</td>
       <td class="tc"></td>
@@ -229,7 +236,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3057</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">36 model<br><small>52 SKU</small></td>
+      <td class="tc">36 model(s)<br><small>52 SKU</small></td>
       <td class="tc">02/05/2026</td>
       <td class="tc">29/05/2026</td>
       <td class="tc">08/06/2026</td>
@@ -244,7 +251,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3059</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">1 model<br><small>10 SKU</small></td>
+      <td class="tc">1 model(s)<br><small>10 SKU</small></td>
       <td class="tc">04/05/2026</td>
       <td class="tc">31/05/2026</td>
       <td class="tc">08/06/2026</td>
@@ -259,7 +266,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3062</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">3 model<br><small>44 SKU</small></td>
+      <td class="tc">3 model(s)<br><small>44 SKU</small></td>
       <td class="tc">02/05/2026</td>
       <td class="tc">31/05/2026</td>
       <td class="tc">08/06/2026</td>
@@ -274,7 +281,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3066</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">20 model<br><small>40 SKU</small></td>
+      <td class="tc">20 model(s)<br><small>40 SKU</small></td>
       <td class="tc">26/04/2026</td>
       <td class="tc">31/05/2026</td>
       <td class="tc">08/06/2026</td>
@@ -289,7 +296,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3067</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">3 model<br><small>48 SKU</small></td>
+      <td class="tc">3 model(s)<br><small>48 SKU</small></td>
       <td class="tc">10/05/2026</td>
       <td class="tc">31/05/2026</td>
       <td class="tc">09/06/2026</td>
@@ -304,7 +311,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3069</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">5 model<br><small>69 SKU</small></td>
+      <td class="tc">5 model(s)<br><small>69 SKU</small></td>
       <td class="tc">18/03/2026</td>
       <td class="tc">05/06/2026</td>
       <td class="tc">27/07/2026</td>
@@ -319,7 +326,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3098</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">9 model<br><small>43 SKU</small></td>
+      <td class="tc">9 model(s)<br><small>43 SKU</small></td>
       <td class="tc">07/05/2026</td>
       <td class="tc">10/06/2026</td>
       <td class="tc">13/06/2026</td>
@@ -334,7 +341,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
       <td class="tc bold">3092</td>
       <td>MR.SHANGGUAN</td>
       <td class="tc"><span class="badge" style="background:#3b82f6">In transit</span></td>
-      <td class="tc">6 model<br><small>46 SKU</small></td>
+      <td class="tc">6 model(s)<br><small>46 SKU</small></td>
       <td class="tc">09/03/2026</td>
       <td class="tc">07/06/2026</td>
       <td class="tc">19/05/2026</td>
@@ -348,26 +355,25 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- ════════════ TAB: MODEL ════════════ -->
 <div id="tab-model" class="tab-panel">
   <div class="filter-bar">
-    <div class="filter-group"><label>ค้นหา Model</label>
-      <input type="text" id="f_model_search" placeholder="พิมพ์ชื่อ model..." style="min-width:200px"
+    <div class="filter-group"><label>Search Model</label>
+      <input type="text" id="f_model_search" placeholder="Type model name..." style="min-width:200px"
              oninput="filterModel()"></div>
-    <div class="filter-group"><label>% เข้าคลัง</label>
+    <div class="filter-group"><label>% Received</label>
       <select id="f_model_pct" onchange="filterModel()">
-        <option value="">ทั้งหมด</option>
-        <option value="0">ยังไม่ได้รับ (0%)</option>
-        <option value="partial">รับบางส่วน (&gt;0% &lt;100%)</option>
-        <option value="full">รับครบ (100%)</option>
+        <option value="">All</option>
+        <option value="0">Not received (0%)</option>
+        <option value="partial">Partial (&gt;0% &lt;100%)</option>
+        <option value="full">Fully received (100%)</option>
       </select></div>
     <span id="model_count" style="font-size:12px;color:var(--muted);align-self:center"></span>
   </div>
   <div class="tbl-wrap">
     <table>
       <thead><tr>
-        <th>รหัสสินค้า (Model)</th><th>สั่งรวม</th><th>เข้าคลัง</th>
-        <th>รอเข้า</th><th>% เข้าคลัง</th><th>PO</th><th>PO ที่เกี่ยวข้อง (วันเรือถึง)</th>
+        <th>Product Code (Model)</th><th>Total Ordered</th><th>Received</th>
+        <th>Pending</th><th>% Received</th><th>PO</th><th>Related POs (Arrival Date)</th>
       </tr></thead>
       <tbody id="tb_model">
     <tr class="trow" data-model="LN895">
@@ -1481,26 +1487,25 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- ════════════ TAB: SKU ════════════ -->
 <div id="tab-sku" class="tab-panel">
   <div class="filter-bar">
-    <div class="filter-group"><label>ค้นหา SKU / Model</label>
-      <input type="text" id="f_sku_search" placeholder="พิมพ์ SKU หรือ model..." style="min-width:220px"
+    <div class="filter-group"><label>Search SKU / Model</label>
+      <input type="text" id="f_sku_search" placeholder="Type SKU or model..." style="min-width:220px"
              oninput="filterSKU()"></div>
-    <div class="filter-group"><label>% เข้าคลัง</label>
+    <div class="filter-group"><label>% Received</label>
       <select id="f_sku_pct" onchange="filterSKU()">
-        <option value="">ทั้งหมด</option>
-        <option value="0">ยังไม่ได้รับ (0%)</option>
-        <option value="partial">รับบางส่วน</option>
-        <option value="full">รับครบ (100%)</option>
+        <option value="">All</option>
+        <option value="0">Not received (0%)</option>
+        <option value="partial">Partial</option>
+        <option value="full">Fully received (100%)</option>
       </select></div>
     <span id="sku_count" style="font-size:12px;color:var(--muted);align-self:center"></span>
   </div>
   <div class="tbl-wrap">
     <table>
       <thead><tr>
-        <th>รหัสสินค้า (SKU)</th><th>Model</th><th>สั่งรวม</th><th>เข้าคลัง</th>
-        <th>รอเข้า</th><th>% เข้าคลัง</th><th>PO</th><th>PO ที่เกี่ยวข้อง (วันเรือถึง)</th>
+        <th>Product Code (SKU)</th><th>Model</th><th>Total Ordered</th><th>Received</th>
+        <th>Pending</th><th>% Received</th><th>PO</th><th>Related POs (Arrival Date)</th>
       </tr></thead>
       <tbody id="tb_sku">
     <tr class="trow" data-sku="LN895- BROWN39" data-model="LN895">
@@ -5417,32 +5422,48 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-</div><!-- /wrap -->
+</div>
 
-<!-- ── Scripts ── -->
 <script>
 const CHARTS = {
-  donut: {"data": [{"hole": 0.55, "labels": ["Delivered", "In transit"], "marker": {"colors": ["#22c55e", "#3b82f6"]}, "textfont": {"size": 13}, "textinfo": "label+value", "values": {"dtype": "i1", "bdata": "Awg="}, "type": "pie"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 0, "b": 0, "l": 0, "r": 0}, "height": 240, "showlegend": false, "paper_bgcolor": "rgba(0,0,0,0)"}},
-  bar:   {"data": [{"marker": {"color": "#3b82f6"}, "name": "\u0e2a\u0e31\u0e48\u0e07", "text": ["16,960", "20,560", "17,640", "15,970", "10,020", "16,950", "12,980", "16,510", "18,120", "17,990", "15,950"], "textfont": {"size": 10}, "textposition": "outside", "x": ["2988", "2990", "3056", "3057", "3059", "3062", "3066", "3067", "3069", "3098", "3092"], "y": {"dtype": "i2", "bdata": "QEJQUOhEYj4kJzZCtDJ+QMhGRkZOPg=="}, "type": "bar"}, {"marker": {"color": "#22c55e"}, "name": "\u0e40\u0e02\u0e49\u0e32\u0e04\u0e25\u0e31\u0e07", "text": ["16,960", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"], "textfont": {"size": 10}, "textposition": "outside", "x": ["2988", "2990", "3056", "3057", "3059", "3062", "3066", "3067", "3069", "3098", "3092"], "y": {"dtype": "i2", "bdata": "QEIAAAAAAAAAAAAAAAAAAAAAAAAAAA=="}, "type": "bar"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 10, "b": 40, "l": 40, "r": 10}, "legend": {"orientation": "h", "y": 1.1}, "font": {"family": "Tahoma, sans-serif", "size": 11}, "yaxis": {"gridcolor": "#e2e8f0"}, "barmode": "group", "height": 280, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "rgba(0,0,0,0)", "xaxis": {"title": {"text": "PO#"}}}},
-  hbar:  {"data": [{"marker": {"color": "#93c5fd"}, "name": "\u0e2a\u0e31\u0e48\u0e07", "orientation": "h", "text": ["57,100", "13,380", "10,200", "9,550", "7,700", "7,180", "6,380", "6,300", "5,940", "3,950", "3,900", "2,900", "2,040", "1,850", "1,540"], "textfont": {"size": 10}, "textposition": "outside", "x": {"dtype": "i4", "bdata": "DN8AAEQ0AADYJwAATiUAABQeAAAMHAAA7BgAAJwYAAA0FwAAbg8AADwPAABUCwAA+AcAADoHAAAEBgAA"}, "y": ["LN895", "LN959", "LN2800", "LN899", "LN898", "LN897", "LN8803", "LN2801", "LN7707", "LN908", "LN9061", "LN312\u7c73\u827239", "LN312\u7c73\u827240", "LN901", "LN5300-\u767d\u9ed141"], "type": "bar"}, {"marker": {"color": "#22c55e"}, "name": "\u0e40\u0e02\u0e49\u0e32\u0e04\u0e25\u0e31\u0e07", "orientation": "h", "text": ["6,250", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1,850", "0"], "textfont": {"size": 10}, "textposition": "outside", "x": {"dtype": "i2", "bdata": "ahgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6BwAA"}, "y": ["LN895", "LN959", "LN2800", "LN899", "LN898", "LN897", "LN8803", "LN2801", "LN7707", "LN908", "LN9061", "LN312\u7c73\u827239", "LN312\u7c73\u827240", "LN901", "LN5300-\u767d\u9ed141"], "type": "bar"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 10, "b": 10, "l": 160, "r": 60}, "legend": {"orientation": "h", "y": 1.05}, "font": {"family": "Tahoma, sans-serif", "size": 11}, "xaxis": {"gridcolor": "#e2e8f0"}, "barmode": "overlay", "height": 460, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "rgba(0,0,0,0)"}},
+  donut: {"data": [{"hole": 0.55, "labels": ["Delivered", "In transit"], "marker": {"colors": ["#22c55e", "#3b82f6"]}, "textfont": {"size": 13}, "textinfo": "label+value", "values": {"dtype": "i1", "bdata": "Awg="}, "type": "pie"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 10, "b": 10, "l": 10, "r": 10}, "legend": {"font": {"size": 11}, "orientation": "h", "y": -0.1, "x": 0.5, "xanchor": "center"}, "height": 240, "showlegend": true, "paper_bgcolor": "rgba(0,0,0,0)", "autosize": true}},
+  bar:   {"data": [{"constraintext": "none", "marker": {"color": "#3b82f6"}, "name": "Ordered", "text": ["16,960", "20,560", "17,640", "15,970", "10,020", "16,950", "12,980", "16,510", "18,120", "17,990", "15,950"], "textfont": {"color": "#1e293b", "size": 11}, "textposition": "outside", "x": ["2988", "2990", "3056", "3057", "3059", "3062", "3066", "3067", "3069", "3098", "3092"], "y": {"dtype": "i2", "bdata": "QEJQUOhEYj4kJzZCtDJ+QMhGRkZOPg=="}, "type": "bar"}, {"constraintext": "none", "marker": {"color": "#22c55e"}, "name": "Received", "text": ["16,960", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"], "textfont": {"color": "#1e293b", "size": 11}, "textposition": "outside", "x": ["2988", "2990", "3056", "3057", "3059", "3062", "3066", "3067", "3069", "3098", "3092"], "y": {"dtype": "i2", "bdata": "QEIAAAAAAAAAAAAAAAAAAAAAAAAAAA=="}, "type": "bar"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 30, "b": 50, "l": 60, "r": 20}, "legend": {"font": {"size": 12}, "orientation": "h", "y": 1.12, "x": 0}, "xaxis": {"tickfont": {"size": 11}, "title": {"text": "PO#"}, "tickangle": -30}, "yaxis": {"tickfont": {"size": 11}, "gridcolor": "#e2e8f0", "range": [0, 25700.0]}, "font": {"family": "Tahoma, sans-serif", "size": 12}, "barmode": "group", "height": 320, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "rgba(0,0,0,0)", "bargap": 0.25, "bargroupgap": 0.05, "autosize": true}},
+  hbar:  {"data": [{"constraintext": "none", "marker": {"color": "#93c5fd"}, "name": "Ordered", "orientation": "h", "text": ["57,100", "13,380", "10,200", "9,550", "7,700", "7,180", "6,380", "6,300", "5,940", "3,950", "3,900", "2,900", "2,040", "1,850", "1,540"], "textfont": {"color": "#1e293b", "size": 10}, "textposition": "outside", "x": {"dtype": "i4", "bdata": "DN8AAEQ0AADYJwAATiUAABQeAAAMHAAA7BgAAJwYAAA0FwAAbg8AADwPAABUCwAA+AcAADoHAAAEBgAA"}, "y": ["LN895", "LN959", "LN2800", "LN899", "LN898", "LN897", "LN8803", "LN2801", "LN7707", "LN908", "LN9061", "LN312\u7c73\u827239", "LN312\u7c73\u827240", "LN901", "LN5300-\u767d\u9ed141"], "type": "bar"}, {"constraintext": "none", "marker": {"color": "#22c55e"}, "name": "Received", "orientation": "h", "text": ["6,250", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1,850", "0"], "textfont": {"color": "#1e293b", "size": 10}, "textposition": "outside", "x": {"dtype": "i2", "bdata": "ahgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6BwAA"}, "y": ["LN895", "LN959", "LN2800", "LN899", "LN898", "LN897", "LN8803", "LN2801", "LN7707", "LN908", "LN9061", "LN312\u7c73\u827239", "LN312\u7c73\u827240", "LN901", "LN5300-\u767d\u9ed141"], "type": "bar"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "margin": {"t": 20, "b": 20, "l": 180, "r": 100}, "legend": {"font": {"size": 12}, "orientation": "h", "y": 1.06, "x": 0}, "font": {"family": "Tahoma, sans-serif", "size": 11}, "xaxis": {"tickfont": {"size": 11}, "gridcolor": "#e2e8f0", "range": [0, 74230.0]}, "yaxis": {"tickfont": {"size": 11}}, "barmode": "overlay", "height": 530, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "rgba(0,0,0,0)", "autosize": true}},
+};
+
+const PLOTLY_CONFIG = {
+  responsive: true,
+  displayModeBar: false,
 };
 
 function renderChart(id, obj) {
-  Plotly.newPlot(id, obj.data, {...obj.layout, responsive:true});
+  Plotly.newPlot(id, obj.data, {...obj.layout, responsive:true}, PLOTLY_CONFIG);
 }
+
 renderChart('chart_donut', CHARTS.donut);
 renderChart('chart_bar',   CHARTS.bar);
 renderChart('chart_hbar',  CHARTS.hbar);
 
-// ── Tab switch ──
+// Re-render charts on window resize for full responsiveness
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    ['chart_donut','chart_bar','chart_hbar'].forEach(id => Plotly.Plots.resize(id));
+  }, 200);
+});
+
 function switchTab(name, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
   el.classList.add('active');
+  // Resize charts if visible after tab switch
+  setTimeout(() => {
+    ['chart_donut','chart_bar','chart_hbar'].forEach(id => Plotly.Plots.resize(id));
+  }, 50);
 }
 
-// ── PO filter ──
 function filterPO() {
   const po    = document.getElementById('f_po').value;
   const ship  = document.getElementById('f_ship').value;
@@ -5462,7 +5483,7 @@ function filterPO() {
     r.style.display = show ? '' : 'none';
     if (show) vis++;
   });
-  document.getElementById('po_count').textContent = `แสดง ${vis} / ${rows.length} รายการ`;
+  document.getElementById('po_count').textContent = `Showing ${vis} / ${rows.length} items`;
 }
 function resetPO() {
   ['f_po','f_ship'].forEach(id => document.getElementById(id).value='');
@@ -5471,7 +5492,6 @@ function resetPO() {
 }
 filterPO();
 
-// ── Model filter ──
 function filterModel() {
   const q   = document.getElementById('f_model_search').value.toLowerCase();
   const pct = document.getElementById('f_model_pct').value;
@@ -5488,11 +5508,10 @@ function filterModel() {
     r.style.display = show ? '' : 'none';
     if (show) vis++;
   });
-  document.getElementById('model_count').textContent = `แสดง ${vis} / ${rows.length} รายการ`;
+  document.getElementById('model_count').textContent = `Showing ${vis} / ${rows.length} items`;
 }
 filterModel();
 
-// ── SKU filter ──
 function filterSKU() {
   const q   = document.getElementById('f_sku_search').value.toLowerCase();
   const pct = document.getElementById('f_sku_pct').value;
@@ -5510,7 +5529,7 @@ function filterSKU() {
     r.style.display = show ? '' : 'none';
     if (show) vis++;
   });
-  document.getElementById('sku_count').textContent = `แสดง ${vis} / ${rows.length} รายการ`;
+  document.getElementById('sku_count').textContent = `Showing ${vis} / ${rows.length} items`;
 }
 filterSKU();
 </script>
