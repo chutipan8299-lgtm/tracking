@@ -18,16 +18,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-size:13px;font-family:var(--font);padding:16px;-webkit-text-size-adjust:100%}
 .wrap{max-width:1600px;margin:0 auto}
-
-/* Header */
 .header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
 .header h1{font-size:20px;font-weight:700;color:var(--navy)}
 .header .sub{font-size:11px;color:var(--muted);margin-top:2px}
 .lang-switch{margin-left:auto;display:flex;gap:4px;background:var(--border);padding:3px;border-radius:8px}
 .lang-btn{padding:4px 10px;border-radius:6px;border:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--muted);background:none;transition:0.2s}
 .lang-btn.active{background:#fff;color:var(--navy);box-shadow:0 2px 4px rgba(0,0,0,0.05)}
-
-/* KPIs */
 .kpi-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-bottom:16px}
 @media(max-width:1200px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:640px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
@@ -36,15 +32,11 @@ body{background:var(--bg);color:var(--text);font-size:13px;font-family:var(--fon
 .kpi-label{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:4px;min-height:12px}
 .kpi-val{font-size:clamp(15px,2vw,22px);font-weight:700;line-height:1.1}
 .kpi-sub{font-size:10px;color:var(--muted);margin-top:3px;min-height:12px}
-
-/* Charts grid */
 .chart-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-bottom:12px}
 .chart-bottom{display:grid;grid-template-columns:1fr;margin-bottom:16px}
 @media(max-width:900px){.chart-top{grid-template-columns:1fr}}
 .viz-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);padding:12px}
 .viz-title{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:6px}
-
-/* Controls */
 .control-pane{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);
                padding:12px 14px;margin-bottom:12px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
 .fg{display:flex;flex-direction:column;gap:3px}
@@ -55,15 +47,11 @@ body{background:var(--bg);color:var(--text);font-size:13px;font-family:var(--fon
 .btn-reset{padding:7px 14px;border-radius:6px;border:1.5px solid var(--border);
             background:#fff;font-size:12px;font-weight:600;cursor:pointer;color:var(--muted)}
 .result-count{font-size:12px;color:var(--muted);align-self:center}
-
-/* Tabs */
 .tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
 .tab{padding:7px 18px;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600;
       border:1.5px solid var(--border);background:var(--card);color:var(--muted)}
 .tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .tab-panel{display:none}.tab-panel.active{display:block}
-
-/* Table */
 .tbl-card{background:var(--card);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden}
 .tbl-wrap{overflow-x:auto;max-height:500px;-webkit-overflow-scrolling:touch}
 .tbl-wrap::-webkit-scrollbar{height:5px;width:5px}
@@ -82,8 +70,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
 .pbar{display:flex;align-items:center;gap:5px}
 .pbar-fill{height:7px;border-radius:4px;min-width:2px}
 .pbar-lbl{font-size:11px;font-weight:600;min-width:38px}
-
-/* Stage legend */
 .stage-legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted);
                margin-bottom:8px;padding:8px 12px;background:var(--card);
                border-radius:8px;border:1px solid var(--border)}
@@ -93,12 +79,11 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
 <body>
 <div class="wrap">
 
-<!-- Header -->
 <div class="header">
   <span style="font-size:28px">🚢</span>
   <div>
     <h1 data-key="title">PO & Product Tracker Dashboard</h1>
-    <div class="sub"><span data-key="updated">Updated</span>: 17/06/2026 13:24  |  <span data-key="source">Source</span>: Data_for_track.xlsx</div>
+    <div class="sub"><span data-key="updated">Updated</span>: 17/06/2026 14:23  |  <span data-key="source">Source</span>: Data_for_track.xlsx</div>
   </div>
   <div class="lang-switch">
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">English</button>
@@ -106,7 +91,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- KPIs -->
 <div class="kpi-grid">
   <div class="kpi">
     <div class="kpi-label" data-key="kpi_po">Total POs</div>
@@ -145,7 +129,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- Charts row 1 -->
 <div class="chart-top">
   <div class="viz-card">
     <div class="viz-title" data-key="chart_timeline">📅 Shipment Timeline by PO</div>
@@ -161,7 +144,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- Charts row 2 -->
 <div class="chart-bottom">
   <div class="viz-card">
     <div class="viz-title" data-key="chart_stack">📦 Fulfillment Gap by PO (Ordered vs PL vs Received)</div>
@@ -169,7 +151,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- Controls -->
 <div class="control-pane">
   <div class="fg">
     <label data-key="f_po">PO#</label>
@@ -209,13 +190,11 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   <span class="result-count" id="result-count"></span>
 </div>
 
-<!-- Tabs -->
 <div class="tabs">
   <div class="tab active" onclick="switchTab('sku',this)" data-key="tab_sku">🔍 SKU Tracker</div>
   <div class="tab" onclick="switchTab('po',this)" data-key="tab_po">📋 PO Overview</div>
 </div>
 
-<!-- Stage legend -->
 <div class="stage-legend">
   <span>🟢 <span data-key="stg_fully">Fully Received</span></span>
   <span>🟡 <span data-key="stg_partial">Partially Received</span></span>
@@ -224,7 +203,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   <span>🔴 <span data-key="stg_none">Not in PL yet</span></span>
 </div>
 
-<!-- SKU Tab -->
 <div id="tab-sku" class="tab-panel active">
   <div class="tbl-card">
     <div class="tbl-wrap">
@@ -242,7 +220,6 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-<!-- PO Tab -->
 <div id="tab-po" class="tab-panel">
   <div class="tbl-card">
     <div class="tbl-wrap">
@@ -260,7 +237,7 @@ tbody td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:m
   </div>
 </div>
 
-</div><!-- /wrap -->
+</div>
 <script>
 const CHARTS = {
   timeline: {"data": [{"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "2852", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-01-10T00:00:00", "2026-05-07T00:00:00", "2026-05-13T00:00:00", "2026-05-31T00:00:00"], "y": ["2852", "2852", "2852", "2852"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "2853", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-01-10T00:00:00", "2026-05-08T00:00:00", "2026-05-13T00:00:00", "2026-06-01T00:00:00"], "y": ["2853", "2853", "2853", "2853"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3092", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-03-09T00:00:00", "2026-06-07T00:00:00", "2026-05-19T02:00:00", "2026-06-26T06:00:00"], "y": ["3092", "3092", "3092", "3092"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "2988", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-03-16T00:00:00", "2026-05-16T00:00:00", "2026-05-21T00:00:00", "2026-05-30T00:00:00"], "y": ["2988", "2988", "2988", "2988"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3069", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-03-18T00:00:00", "2026-06-05T00:00:00", "2026-07-27T16:44:00", "2026-06-15T00:00:00"], "y": ["3069", "3069", "3069", "3069"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "2896", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-04-26T00:00:00", "2026-05-14T00:00:00", "2026-05-21T00:00:00", "2026-05-28T00:00:00"], "y": ["2896", "2896", "2896", "2896"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3066", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-04-26T00:00:00", "2026-05-31T00:00:00", "2026-06-08T16:44:00", "2026-06-15T00:00:00"], "y": ["3066", "3066", "3066", "3066"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "2990", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-04-28T00:00:00", "2026-05-23T00:00:00", "2026-05-31T22:24:00", "2026-06-06T07:47:00"], "y": ["2990", "2990", "2990", "2990"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#1D9E75", "width": 3}, "marker": {"color": "#1D9E75", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3056", "showlegend": false, "text": ["Ordered", "Packed", "Arrived"], "x": ["2026-05-02T00:00:00", "2026-05-24T00:00:00", "2026-06-06T11:59:00"], "y": ["3056", "3056", "3056"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3057", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-05-02T00:00:00", "2026-05-29T00:00:00", "2026-06-08T16:44:00", "2026-06-15T00:00:00"], "y": ["3057", "3057", "3057", "3057"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3062", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-05-02T00:00:00", "2026-05-31T00:00:00", "2026-06-08T16:44:00", "2026-06-15T00:00:00"], "y": ["3062", "3062", "3062", "3062"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3059", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-05-04T00:00:00", "2026-05-31T00:00:00", "2026-06-08T16:44:00", "2026-06-15T00:00:00"], "y": ["3059", "3059", "3059", "3059"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3098", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-05-07T00:00:00", "2026-06-10T00:00:00", "2026-06-13T23:00:00", "2026-06-19T23:00:00"], "y": ["3098", "3098", "3098", "3098"], "type": "scatter"}, {"hovertemplate": "<b>PO %{y}</b><br>%{text}: %{x|%d/%m/%Y}<extra></extra>", "line": {"color": "#EF9F27", "width": 3}, "marker": {"color": "#EF9F27", "line": {"color": "white", "width": 1}, "size": 9}, "mode": "markers+lines", "name": "3067", "showlegend": false, "text": ["Ordered", "Packed", "Departed", "Arrived"], "x": ["2026-05-10T00:00:00", "2026-05-31T00:00:00", "2026-06-09T16:44:00", "2026-06-15T00:00:00"], "y": ["3067", "3067", "3067", "3067"], "type": "scatter"}], "layout": {"template": {"data": {"histogram2dcontour": [{"type": "histogram2dcontour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "choropleth": [{"type": "choropleth", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "histogram2d": [{"type": "histogram2d", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "heatmap": [{"type": "heatmap", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "contourcarpet": [{"type": "contourcarpet", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "contour": [{"type": "contour", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "surface": [{"type": "surface", "colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}], "mesh3d": [{"type": "mesh3d", "colorbar": {"outlinewidth": 0, "ticks": ""}}], "scatter": [{"fillpattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}, "type": "scatter"}], "parcoords": [{"type": "parcoords", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolargl": [{"type": "scatterpolargl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "bar"}], "scattergeo": [{"type": "scattergeo", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterpolar": [{"type": "scatterpolar", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "histogram": [{"marker": {"pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "histogram"}], "scattergl": [{"type": "scattergl", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatter3d": [{"type": "scatter3d", "line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermap": [{"type": "scattermap", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattermapbox": [{"type": "scattermapbox", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scatterternary": [{"type": "scatterternary", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "scattercarpet": [{"type": "scattercarpet", "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}, "pattern": {"fillmode": "overlay", "size": 10, "solidity": 0.2}}, "type": "barpolar"}], "pie": [{"automargin": true, "type": "pie"}]}, "layout": {"autotypenumbers": "strict", "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "hovermode": "closest", "hoverlabel": {"align": "left"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"bgcolor": "#E5ECF6", "angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "ternary": {"bgcolor": "#E5ECF6", "aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]]}, "xaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "yaxis": {"gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "automargin": true, "zerolinewidth": 2}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white", "gridwidth": 2}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "geo": {"bgcolor": "white", "landcolor": "#E5ECF6", "subunitcolor": "white", "showland": true, "showlakes": true, "lakecolor": "white"}, "title": {"x": 0.05}, "mapbox": {"style": "light"}}}, "font": {"family": "Inter,sans-serif", "size": 11}, "margin": {"t": 10, "b": 50, "l": 60, "r": 20}, "xaxis": {"gridcolor": "#e2e8f0", "tickangle": -30}, "yaxis": {"tickfont": {"size": 10}, "gridcolor": "#e2e8f0", "autorange": "reversed"}, "paper_bgcolor": "rgba(0,0,0,0)", "plot_bgcolor": "rgba(0,0,0,0)", "autosize": true, "height": 300}},
@@ -287,7 +264,6 @@ window.addEventListener('resize', () => {
   }, 200);
 });
 
-// ── Flatpickr ──
 function mkPicker(id) {
   return flatpickr('#'+id, {dateFormat:'d/m/Y', allowInput:false,
     locale:{firstDayOfWeek:1}, onClose: applyFilters});
@@ -301,7 +277,6 @@ function parseDate(str) {
   return new Date(+y, +m-1, +d);
 }
 
-// ── Tab switch ──
 let currentTab = 'sku';
 function switchTab(name, el) {
   currentTab = name;
@@ -335,7 +310,8 @@ const LANGS = {
     th_ord_dt: "Order Date", th_pack_dt: "Packed", th_dept_dt: "Departed", th_arr_dt: "Arrived",
     stg_fully: "Fully Received", stg_partial: "Partially Received", stg_pl_ready: "PL ready, no receipt", stg_partial_pl: "Partial PL", stg_none: "Not in PL",
     showing: "Showing", rows: "rows",
-    stat_delivered: "Delivered", stat_transit: "In transit", stat_arrived: "Arrived", stat_stuffed: "Stuffed", stat_ordered: "Ordered"
+    stat_delivered: "Delivered", stat_transit: "In transit", stat_arrived: "Arrived", stat_stuffed: "Stuffed", stat_ordered: "Ordered",
+    lab_ordered: "Ordered", lab_pl: "PL Qty", lab_received: "Received", lab_pl_pending: "PL → not recv", lab_not_in_pl: "Not in PL"
   },
   cn: {
     title: "采购单与产品追踪看板", updated: "更新时间", source: "数据源",
@@ -344,21 +320,22 @@ const LANGS = {
     kpi_ord: "总订单量", kpi_ord_sub: "所有采购单的总件数",
     kpi_pl: "总装箱量 (PL)", of_ordered: "占订单总量",
     kpi_rcv: "已收货数量", of_pl: "占装箱列表 (PL)",
-    kpi_gap: "待收货差异", kpi_gap_sub: "已装箱แต่尚未入仓的数量",
+    kpi_gap: "待收货差异", kpi_gap_sub: "已装箱但尚未入仓的数量",
     kpi_fr: "达成率", kpi_fr_sub: "已收货 / 装箱列表 (PL)",
     chart_timeline: "📅 采购单发货时间轴", chart_donut: "🍩 收货状态分布",
     chart_volume: "📊 订单 vs 装箱 vs 已收货", chart_stack: "📦 各采购单缺口分析 (订单 vs 装箱 vs 已收货)",
     f_po: "采购单号", f_status: "发货状态", f_model: "型号", f_stage: "收货阶段",
-    f_from: "到货日期 (จาก)", f_to: "到货日期 (ถึง)", f_search: "智能搜索",
+    f_from: "到货日期 (从)", f_to: "到货日期 (至)", f_search: "智能搜索",
     search_placeholder: "搜索 SKU, 型号, 采购单号...", btn_reset: "↺ 重置", opt_all: "全部",
     tab_sku: "🔍 SKU 追踪", tab_po: "📋 采购单概览",
     th_po: "采购单号", th_status: "状态", th_arrival: "到货时间", th_sku: "SKU 编码", th_model: "型号", th_variant: "规格",
     th_ord: "订单量", th_pl: "装箱量 (PL)", th_gap_pl: "未装箱", th_rcv: "已收货", th_gap_rcv: "待收货差异",
     th_stage: "阶段", th_pct: "收货率", th_supplier: "供应商", th_container: "集装箱号", th_mod_sku: "型号/SKU",
     th_ord_dt: "下单日期", th_pack_dt: "装箱日期", th_dept_dt: "发货日期", th_arr_dt: "到货日期",
-    stg_fully: "已收齐", stg_partial: "收货中", stg_pl_ready: "等候入库", stg_partial_pl: "部分装箱", stat_none: "尚未装箱",
+    stg_fully: "已收齐", stg_partial: "收货中", stg_pl_ready: "等候入库", stg_partial_pl: "部分装箱", stg_none: "尚未装箱",
     showing: "当前显示", rows: "行数据",
-    stat_delivered: "已入仓", stat_transit: "运输中", stat_arrived: "已到港", stat_stuffed: "已装箱", stat_ordered: "已下单"
+    stat_delivered: "已入仓", stat_transit: "运输中", stat_arrived: "已到港", stat_stuffed: "已装箱", stat_ordered: "已下单",
+    lab_ordered: "订单量", lab_pl: "装箱量", lab_received: "已收货", lab_pl_pending: "装箱未收", lab_not_in_pl: "未装箱"
   }
 };
 
@@ -390,7 +367,6 @@ function setLang(lang) {
   applyFilters();
 }
 
-// ── Filters ──
 function applyFilters() {
   const fPO     = document.getElementById('f-po').value;
   const fStatus = document.getElementById('f-status').value;
@@ -435,38 +411,34 @@ function applyFilters() {
     }
   });
 
-  // Update KPIs
   document.getElementById('kpi-po').innerText  = visPOs.size;
   document.getElementById('kpi-ord').innerText = sOrd.toLocaleString();
   document.getElementById('kpi-pl').innerText  = sPL.toLocaleString();
   document.getElementById('kpi-rcv').innerText = sRcv.toLocaleString();
   document.getElementById('kpi-gap').innerText = (sPL-sRcv).toLocaleString();
   document.getElementById('kpi-fr').innerText  = sPL>0 ? (sRcv/sPL*100).toFixed(1)+'%' : '0%';
-  
+
   const dict = LANGS[currentLang];
   document.getElementById('result-count').innerText = `${dict.showing} ${vis} / ${rows.length} ${dict.rows}`;
 
-  // Update donut
   const stgLabels = Object.keys(stages).map(s => {
     const key = 'stg_' + s.toLowerCase().replace('complete, not received', 'pl_ready').replace('not in pl yet', 'none').replace('partially received', 'partial').replace('fully received', 'fully').replace('partial pl', 'partial_pl');
     return dict[key] || s;
   });
-  const stgVals   = Object.values(stages);
+  const stgVals = Object.values(stages);
   Plotly.restyle('chart-donut', {'labels':[stgLabels],'values':[stgVals]}, [0]);
 
-  // Update volume bar
+  // FIX: x labels now always defined via lab_ordered / lab_pl / lab_received
   Plotly.restyle('chart-volume', {
     'y':[[sOrd,sPL,sRcv]],
     'text':[[sOrd.toLocaleString(),sPL.toLocaleString(),sRcv.toLocaleString()]],
     'x': [[dict.lab_ordered, dict.lab_pl, dict.lab_received]]
   }, [0]);
 
-  // Update stack bar legends
   Plotly.restyle('chart-stack', { 'name': dict.lab_received }, [0]);
   Plotly.restyle('chart-stack', { 'name': dict.lab_pl_pending }, [1]);
   Plotly.restyle('chart-stack', { 'name': dict.lab_not_in_pl }, [2]);
 
-  // Dim timeline traces
   const tl = document.getElementById('chart-timeline');
   if (tl && tl.data) {
     const opacities = tl.data.map(tr => (fPO==='' || tr.name===fPO) ? 1.0 : 0.12);
@@ -481,7 +453,6 @@ function resetFilters() {
   applyFilters();
 }
 
-// Initialize
 setLang('cn');
 </script>
 </body>
